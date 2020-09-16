@@ -4,6 +4,9 @@ $(document).ready(function() {
   // Se è <= 5 il quadrato diventa giallo, se è > di 5 il quadrato diventa verde.
   // Il numero ottenuto appare al centro del quadrato.
 
+
+
+
   $("#generate").click(
     function() {
       $.ajax(
@@ -12,13 +15,20 @@ $(document).ready(function() {
     "method": "GET",
     "success": function (data, stato) {
     var rispostaServer = data.response;
-    console.log(rispostaServer);
-
+    var source = document.getElementById("entry-template").innerHTML;
+    var template = Handlebars.compile(source);
+    var context = {
+      "number": rispostaServer,
+    };
+    var html = template(context);
+    $("#box-wrapper").append(html);
     },
     "error": function (richiesta, stato, errori) {
     alert("E' avvenuto un errore. " + errore);
     }
     });
+
+
 
     });
 
