@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.btn {
+  background-color: lightblue;
+  padding: 10px;
+  display: block;
+  margin: auto;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  float: left;
+}
+
+.box-wrapper::after {
+  display: table;
+  content: "";
+  clear: both;
+}
