@@ -21,9 +21,18 @@
   height: 200px;
   border: 1px solid black;
   float: left;
+  position: relative;
 }
 
-.box-wrapper::after {
+.box span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+
+#box-wrapper::after {
   display: table;
   content: "";
   clear: both;
