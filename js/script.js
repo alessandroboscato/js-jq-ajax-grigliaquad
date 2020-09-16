@@ -5,23 +5,26 @@ $(document).ready(function() {
   // Il numero ottenuto appare al centro del quadrato.
  $("#generate").click(
    function() {
-     $.ajax(
-   {
-   "url": "https://flynn.boolean.careers/exercises/api/random/int",
-   "method": "GET",
-   "success": function (data, stato) {
-   var rispostaServer = data.response;
-   $(".box span").each(
-     function () {
-       $(this).text(rispostaServer);
-     }
-   )
+     $(".box span").each(
+       function () {
+         var box = $(this);
+         $.ajax(
+       {
+       "url": "https://flynn.boolean.careers/exercises/api/random/int",
+       "method": "GET",
+       "success": function (data, stato) {
+       var rispostaServer = data.response;
+        box.text(rispostaServer);
 
-   },
-   "error": function (richiesta, stato, errori) {
-   alert("E' avvenuto un errore. " + errore);
-   }
-   });
+       },
+       "error": function (richiesta, stato, errori) {
+       alert("E' avvenuto un errore. " + errore);
+       }
+       });
+
+       }
+     )
+
    });
 
 });
