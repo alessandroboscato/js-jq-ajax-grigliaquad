@@ -5,42 +5,36 @@ $(document).ready(function() {
   // Il numero ottenuto appare al centro del quadrato.
 var source = $("#entry-template").html();
 var template = Handlebars.compile(source);
+var count = 0;
 
  $("#generate").click(
    function() {
-     $.ajax(
-      {
-      "url": "https://flynn.boolean.careers/exercises/api/random/int",
-      "method": "GET",
-      "success": function (data, stato) {
-      var responseServer = data.response;
-      var condition = false;
-      if (responseServer > 5) {
-        condition = true;
-      }
-      var context = {
-        "number": responseServer,
-        "condition": condition,
-        "green": "bg_green"
-      };
-      var html = template(context);
-      $("#box-wrapper").append(html);
-      },
-      "error": function (richiesta, stato, errori) {
-      alert("E' avvenuto un errore. " + errore);
-      }
-      });
-//click generate ajax
+     if (count < 36) {
+       $.ajax(
+        {
+        "url": "https://flynn.boolean.careers/exercises/api/random/int",
+        "method": "GET",
+        "success": function (data, stato) {
+        var responseServer = data.response;
+        var condition = false;
+        if (responseServer > 5) {
+          condition = true;
+        }
+        var context = {
+          "number": responseServer,
+          "condition": condition,
+          "green": "bg_green"
+        };
+        var html = template(context);
+        $("#box-wrapper").append(html);
+        },
+        "error": function (richiesta, stato, errori) {
+        alert("E' avvenuto un errore. " + errore);
+        }
+        });
+     }
+      count += 1;
     });
 
 //ready
    });
-
-
-    //
-    //
-    // var context = {
-    //   "success": rispostaServer,
-    // };
-    // var html = template(context);
-    // $("#box-wrapper").append(html);

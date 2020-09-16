@@ -5,8 +5,9 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 600px;
   margin: auto;
+  text-align: center;
 }
 
 .btn {
@@ -17,8 +18,8 @@
 }
 
 .box {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border: 1px solid black;
   float: left;
   position: relative;
