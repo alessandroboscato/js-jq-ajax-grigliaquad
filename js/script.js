@@ -5,7 +5,7 @@ $(document).ready(function() {
   // Il numero ottenuto appare al centro del quadrato.
  $("#generate").click(
    function() {
-     $(".box span").each(
+     $(".box").each(
        function () {
          var box = $(this);
          $.ajax(
@@ -14,7 +14,14 @@ $(document).ready(function() {
        "method": "GET",
        "success": function (data, stato) {
        var rispostaServer = data.response;
-        box.text(rispostaServer);
+        box.find("span").text(rispostaServer);
+        if (rispostaServer < 5) {
+          box.removeClass("bg_green");
+          box.addClass("bg_yellow");
+        } else {
+          box.removeClass("bg_yellow");
+          box.addClass("bg_green");
+        }
 
        },
        "error": function (richiesta, stato, errori) {

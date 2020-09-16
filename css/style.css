@@ -22,11 +22,14 @@
   border: 1px solid black;
   float: left;
   position: relative;
-  background: yellow;
 }
 
 .bg_green {
   background: green;
+}
+
+.bg_yellow {
+  background: yellow;
 }
 
 .box span {
