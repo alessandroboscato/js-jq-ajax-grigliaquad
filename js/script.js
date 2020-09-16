@@ -14,8 +14,14 @@ var template = Handlebars.compile(source);
       "method": "GET",
       "success": function (data, stato) {
       var responseServer = data.response;
+      var condition = false;
+      if (responseServer > 5) {
+        condition = true;
+      }
       var context = {
-        "number": responseServer
+        "number": responseServer,
+        "condition": condition,
+        "green": "bg_green"
       };
       var html = template(context);
       $("#box-wrapper").append(html);
@@ -24,7 +30,6 @@ var template = Handlebars.compile(source);
       alert("E' avvenuto un errore. " + errore);
       }
       });
-console.log($.ajax());
 //click generate ajax
     });
 
