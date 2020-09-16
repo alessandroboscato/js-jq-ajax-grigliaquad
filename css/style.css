@@ -44,3 +44,7 @@
   content: "";
   clear: both;
 }
+
+#erase {
+  display: none;
+}

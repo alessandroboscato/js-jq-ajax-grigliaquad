@@ -32,9 +32,19 @@ var count = 0;
         alert("E' avvenuto un errore. " + errore);
         }
         });
+     } else {
+       $("#erase").show();
      }
       count += 1;
     });
+
+    $("#erase").click(
+      function() {
+        $("#box-wrapper").html("");
+        count = 0;
+        $("#erase").hide();
+      }
+    )
 
 //ready
    });
